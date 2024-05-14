@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pe.com.smartpro.entities;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,12 +47,9 @@ public class HabitacionEntity implements Serializable{
     private String usredicion;
 
     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    @JsonManagedReference // Indica que este lado de la relación será serializado
     private List<ServiciosHabitacionEntity> serviciosHabitacion;
      @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
     private List<ImagenesHabitacionEntity> imagenesHabitacion;
-    /*
-    @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
-    private List<ImagenesHabitacionEntity> imagenesHabitacion;
-  @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
-    private List<ServiciosHabitacionEntity> serviciosHabitacion;*/
+ 
 }

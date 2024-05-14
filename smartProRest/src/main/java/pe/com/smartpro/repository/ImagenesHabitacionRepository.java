@@ -1,0 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pe.com.smartpro.repository;
+
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import pe.com.smartpro.entities.ImagenesHabitacionEntity;
+
+public interface ImagenesHabitacionRepository  extends JpaRepository<ImagenesHabitacionEntity,Long>{
+   @Query("select c from ImagenesHabitacionEntity c where c.estado=true and c.habitacion.codigo=:idhabitacion") 
+   List<ImagenesHabitacionEntity> findAllImagenesHabitacion(long idhabitacion); 
+}
