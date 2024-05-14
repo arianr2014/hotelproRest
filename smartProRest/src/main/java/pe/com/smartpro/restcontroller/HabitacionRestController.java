@@ -26,13 +26,8 @@ public class HabitacionRestController {
         return servicio.findAll();
     
     }
-  /*  
-    @GetMapping("/findAllHabitaciones")
-      public List<HabitacionEntity> findAllHabitaciones(){
-        return servicio.findAllHabitaciones();
-    
-    }*/
-    @GetMapping("/findById")
+ 
+    @GetMapping("/findById/{id}")
     public Optional<HabitacionEntity> findById(@PathVariable Long id){
         return servicio.findById(id);
     

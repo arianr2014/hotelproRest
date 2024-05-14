@@ -4,6 +4,7 @@
  */
 package pe.com.smartpro.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +31,7 @@ public class ImagenesHabitacionEntity  implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "idhabitacion")
+    @JsonBackReference 
     private HabitacionEntity habitacion;
 
     @Column(name = "urlimagen")
