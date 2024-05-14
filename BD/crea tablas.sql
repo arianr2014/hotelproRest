@@ -207,5 +207,3 @@ INSERT INTO serviciosHabitacion (idHabitacion, nombreServicio, urlImagen, estado
 INSERT INTO serviciosHabitacion (idHabitacion, nombreServicio, urlImagen, estado, usrCreacion, usrEdicion) VALUES (6, 'Capacidad', 'img/capacidad.jpg', '1', 'admin', 'admin');
 INSERT INTO serviciosHabitacion (idHabitacion, nombreServicio, urlImagen, estado, usrCreacion, usrEdicion) VALUES (6, 'No reembolsable', 'img/noreembolsable.jpg', '1', 'admin', 'admin');
 
-
-
