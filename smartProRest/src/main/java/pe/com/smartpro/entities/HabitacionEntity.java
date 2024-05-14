@@ -49,7 +49,8 @@ public class HabitacionEntity implements Serializable{
     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
     @JsonManagedReference // Indica que este lado de la relación será serializado
     private List<ServiciosHabitacionEntity> serviciosHabitacion;
-     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    @JsonManagedReference // Indica que este lado de la relación será serializado
     private List<ImagenesHabitacionEntity> imagenesHabitacion;
  
 }
