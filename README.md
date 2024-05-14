@@ -1,4 +1,4 @@
-Ejemplo de llamadas en la carpeta postman
+Ejemplo de llamadas en la carpeta postman (descargar e importar en el postman)
 
 ![image](https://github.com/arianr2014/hotelproRest/assets/7255366/40a8406b-da9d-4e3f-86cb-567f7c459e95)
 
