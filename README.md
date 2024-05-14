@@ -15,3 +15,30 @@ http://localhost:8097/smartpro/reservas
 
 http://localhost:8097/smartpro/reservas/1
 ![image](https://github.com/arianr2014/hotelproRest/assets/7255366/bdd8f2d8-a04d-4a16-9c13-043f28161223)
+
+Grabar Reserva
+http://localhost:8097/smartpro/reservas
+![image](https://github.com/arianr2014/hotelproRest/assets/7255366/ef0ed6b2-b990-469c-921f-f8ce0c3275ea)
+
+![image](https://github.com/arianr2014/hotelproRest/assets/7255366/47783ffa-30c3-4e67-b503-4bcece6aeeea)
+
+{
+    "cliente": {
+        "idCliente": 1
+    },
+    "habitacion": {
+        "codigo": 1
+    },
+    "fechaIngreso": "2024-07-01",
+    "fechaSalida": "2024-07-05",
+    "totalDias": 4,
+    "subtotal": 400.00,
+    "igv": 76.00,
+    "total": 476.00,
+    "estado": true,
+    "usuarioCreacion": "admin",
+    "fechaCreacion": "2024-04-19",
+    "usuarioEdicion": "admin",
+    "fechaEdicion": "2024-04-19"
+}
+
