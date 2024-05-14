@@ -207,3 +207,25 @@ INSERT INTO serviciosHabitacion (idHabitacion, nombreServicio, urlImagen, estado
 INSERT INTO serviciosHabitacion (idHabitacion, nombreServicio, urlImagen, estado, usrCreacion, usrEdicion) VALUES (6, 'Capacidad', 'img/capacidad.jpg', '1', 'admin', 'admin');
 INSERT INTO serviciosHabitacion (idHabitacion, nombreServicio, urlImagen, estado, usrCreacion, usrEdicion) VALUES (6, 'No reembolsable', 'img/noreembolsable.jpg', '1', 'admin', 'admin');
 
+
+
+
+-- Registro 1
+INSERT INTO reserva (idcliente, idhabitacion, fechaingreso, fechasalida, totaldias, subtotal, igv, total, estado, usrcreacion, usredicion) 
+VALUES (1, 1, '2024-05-01', '2024-05-05', 4, 400.00, 76.00, 476.00, 1, 'admin', 'admin');
+
+-- Registro 2
+INSERT INTO reserva (idcliente, idhabitacion, fechaingreso, fechasalida, totaldias, subtotal, igv, total, estado, usrcreacion, usredicion) 
+VALUES (2, 2, '2024-05-03', '2024-05-08', 5, 600.00, 114.00, 714.00, 1, 'admin', 'admin');
+
+-- Registro 3
+INSERT INTO reserva (idcliente, idhabitacion, fechaingreso, fechasalida, totaldias, subtotal, igv, total, estado, usrcreacion, usredicion) 
+VALUES (3, 3, '2024-05-06', '2024-05-10', 4, 500.00, 95.00, 595.00, 1, 'admin', 'admin');
+
+-- Registro 4
+INSERT INTO reserva (idcliente, idhabitacion, fechaingreso, fechasalida, totaldias, subtotal, igv, total, estado, usrcreacion, usredicion) 
+VALUES (4, 4, '2024-05-08', '2024-05-12', 4, 450.00, 85.50, 535.50, 1, 'admin', 'admin');
+
+-- Registro 5
+INSERT INTO reserva (idcliente, idhabitacion, fechaingreso, fechasalida, totaldias, subtotal, igv, total, estado, usrcreacion, usredicion) 
+VALUES (5, 5, '2024-05-10', '2024-05-15', 5, 700.00, 133.00, 833.00, 1, 'admin', 'admin');
