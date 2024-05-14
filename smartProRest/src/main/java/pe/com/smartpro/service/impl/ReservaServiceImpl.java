@@ -46,10 +46,16 @@ public class ReservaServiceImpl implements ReservaService {
 
 
         // Obtener el cliente y la habitación asociados a la reserva
+        //reserva.setIdReserva(8L);
   
         ClienteEntity cliente = clienteRepository.findById(reserva.getCliente().getIdCliente()).orElseThrow(); // Obtener el cliente de la base de datos
         HabitacionEntity habitacion = habitacionRepository.findById(reserva.getHabitacion().getCodigo()).orElseThrow(); // Obtener la habitación de la base de datos
         // Asignar el cliente y la habitación a la reserva (sin guardarlos nuevamente)
+        
+        
+       //ClienteEntity cliente = clienteRepository.findById(1L).orElseThrow(); // Obtener el cliente de la base de datos
+       // HabitacionEntity habitacion = habitacionRepository.findById(1L).orElseThrow(); // Obtener la habitación de la base de datos
+        
         reserva.setCliente(cliente);
         reserva.setHabitacion(habitacion);
 
