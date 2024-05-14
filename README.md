@@ -1,3 +1,9 @@
+Ejemplo de llamadas en la carpeta postman
+
+![image](https://github.com/arianr2014/hotelproRest/assets/7255366/40a8406b-da9d-4e3f-86cb-567f7c459e95)
+
+
+
 http://localhost:8097/smartpro/habitacion
 ![image](https://github.com/arianr2014/hotelproRest/assets/7255366/e97110b1-d05e-42dd-89f1-5e38e2735d27)
 
@@ -21,24 +27,4 @@ http://localhost:8097/smartpro/reservas
 ![image](https://github.com/arianr2014/hotelproRest/assets/7255366/ef0ed6b2-b990-469c-921f-f8ce0c3275ea)
 
 ![image](https://github.com/arianr2014/hotelproRest/assets/7255366/47783ffa-30c3-4e67-b503-4bcece6aeeea)
-
-{
-    "cliente": {
-        "idCliente": 1
-    },
-    "habitacion": {
-        "codigo": 1
-    },
-    "fechaIngreso": "2024-07-01",
-    "fechaSalida": "2024-07-05",
-    "totalDias": 4,
-    "subtotal": 400.00,
-    "igv": 76.00,
-    "total": 476.00,
-    "estado": true,
-    "usuarioCreacion": "admin",
-    "fechaCreacion": "2024-04-19",
-    "usuarioEdicion": "admin",
-    "fechaEdicion": "2024-04-19"
-}
 
