@@ -4,16 +4,17 @@
  */
 package pe.com.smartpro.repository;
 
-import java.util.List;
+
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import pe.com.smartpro.entities.ReservaEntity;
+import pe.com.smartpro.entities.UsuarioEntity;
 
 @Repository
-public interface ReservaRepository extends JpaRepository<ReservaEntity, Long> {
+public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
+    // Aquí puedes agregar métodos personalizados si es necesario
     
-  @Query("select c from ReservaEntity c where c.estado=true and c.cliente.idCliente=:idCliente") 
-   List<ReservaEntity> findReservasCliente(long idCliente);
+    @Query("SELECT u FROM UsuarioEntity u WHERE u.email = ?1 AND u.password = ?2")
+    Optional<UsuarioEntity> validarAcceso(String email, String password);
 }

@@ -12,7 +12,9 @@ public interface ReservaService {
     List<ReservaEntity> findAll();
 
     Optional<ReservaEntity> findById(Long id);
-
+    
+    List<ReservaEntity> findReservasCliente(Long id);
+     
     ReservaEntity save(ReservaEntity reserva);
 
     ReservaEntity update(Long id, ReservaEntity reserva);

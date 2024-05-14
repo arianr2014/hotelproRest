@@ -34,6 +34,11 @@ public class ReservaServiceImpl implements ReservaService {
     public List<ReservaEntity> findAll() {
         return reservaRepository.findAll();
     }
+    
+   @Override
+    public List<ReservaEntity> findReservasCliente(Long id) {
+        return reservaRepository.findReservasCliente(id);
+    }
 
     @Override
     public Optional<ReservaEntity> findById(Long id) {
