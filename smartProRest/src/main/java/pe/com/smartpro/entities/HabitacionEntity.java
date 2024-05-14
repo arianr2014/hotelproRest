@@ -1,0 +1,57 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pe.com.smartpro.entities;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import java.io.Serializable;
+import java.util.List;
+import lombok.*;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity(name = "HabitacionEntity")
+@Table (name = "habitacion")
+public class HabitacionEntity implements Serializable{
+
+    private static final long serialVersionUID=1L;
+    @Id
+    @Column(name = "idhabitacion")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codigo;
+    
+   @Column(name = "nombre")
+    private String hnombre;
+
+    @Column(name = "precio")
+    private Double hprecio;
+
+    @Column(name = "estado")
+    private String hestado;
+
+    @Column(name = "usrcreacion")
+    private String husrcreacion;
+
+    @Column(name = "usredicion")
+    private String husredicion;
+
+    @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    private List<ServiciosHabitacionEntity> serviciosHabitacion;
+     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    private List<ImagenesHabitacionEntity> imagenesHabitacion;
+    /*
+    @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    private List<ImagenesHabitacionEntity> imagenesHabitacion;
+  @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
+    private List<ServiciosHabitacionEntity> serviciosHabitacion;*/
+}
