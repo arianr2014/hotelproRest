@@ -77,12 +77,14 @@ CREATE TABLE reserva (
 CREATE TABLE usuarios (
     idusuario INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) UNIQUE,
-    password VARCHAR(255),
+    password VARCHAR(10),
+	idcliente INT,
     estado BIT,
     usrcreacion VARCHAR(100),
     fechcreacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     usredicion VARCHAR(100),
-    fechedicion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    fechedicion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (idcliente) REFERENCES clientes(idcliente)
 );
 
 
@@ -229,3 +231,12 @@ VALUES (4, 4, '2024-05-08', '2024-05-12', 4, 450.00, 85.50, 535.50, 1, 'admin', 
 -- Registro 5
 INSERT INTO reserva (idcliente, idhabitacion, fechaingreso, fechasalida, totaldias, subtotal, igv, total, estado, usrcreacion, usredicion) 
 VALUES (5, 5, '2024-05-10', '2024-05-15', 5, 700.00, 133.00, 833.00, 1, 'admin', 'admin');
+
+
+INSERT INTO usuarios (email, password,idcliente, estado, usrcreacion, usredicion)
+VALUES ('usuario5@example.com', 'password5',1, 1, 'admin', 'admin');
+INSERT INTO usuarios (email, password,idcliente, estado, usrcreacion, usredicion)
+VALUES ('usuario3@example.com', 'password3',2, 1, 'admin', 'admin');
+INSERT INTO usuarios (email, password,idcliente, estado, usrcreacion, usredicion)
+VALUES ('usuario2@example.com', 'password2',3, 1, 'admin', 'admin');
+

@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.*;
@@ -18,53 +20,39 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "ClienteEntity")
-@Table(name = "clientes")
-public class ClienteEntity  implements Serializable{
+@Entity(name = "UsuarioEntity")
+@Table(name = "usuarios")
+public class UsuarioEntity implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idcliente")
-    private Long idCliente;
+    @Column(name = "idusuario")
+    private Long idUsuario;
 
-    @Column(name = "nombres")
-    private String nombres;
-
-    @Column(name = "apellidos")
-    private String apellidos;
-
-    @Column(name = "nrodocumento")
-    private String numeroDocumento;
-
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "telefono")
-    private String telefono;
-
-    @Column(name = "ciudad")
-    private String ciudad;
-
-    @Column(name = "direccion")
-    private String direccion;
-
-    @Column(name = "urlfoto")
-    private String urlfoto;
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "estado")
     private Boolean estado;
 
+    @ManyToOne
+    @JoinColumn(name = "idcliente")
+    private ClienteEntity cliente;
+      
     @Column(name = "usrcreacion")
-    private String usuarioCreacion;
+    private String usrCreacion;
 
     @Column(name = "fechcreacion")
-    private String fechaCreacion;
+    private String fechCreacion;
 
     @Column(name = "usredicion")
-    private String usuarioEdicion;
+    private String usrEdicion;
 
     @Column(name = "fechedicion")
-    private String fechaEdicion;
+    private String fechEdicion;
 
-    // Getters y setters
+    // Constructor, getters y setters
 }
