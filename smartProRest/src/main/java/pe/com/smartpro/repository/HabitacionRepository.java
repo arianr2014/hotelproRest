@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import pe.com.smartpro.entities.HabitacionEntity;
 
 public interface HabitacionRepository extends JpaRepository<HabitacionEntity,Long> {
-  /* @Query("select c from HabitacionEntity c where c.estado=true") 
-   List<HabitacionEntity> findAllHabitaciones();*/
+  @Query("select c from HabitacionEntity c where c.estado=true") 
+   List<HabitacionEntity> findAllHabitaciones();
 }

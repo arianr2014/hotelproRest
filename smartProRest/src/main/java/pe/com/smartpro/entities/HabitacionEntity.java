@@ -31,19 +31,19 @@ public class HabitacionEntity implements Serializable{
     private Long codigo;
     
    @Column(name = "nombre")
-    private String hnombre;
+    private String nombre;
 
     @Column(name = "precio")
-    private Double hprecio;
+    private Double precio;
 
     @Column(name = "estado")
-    private String hestado;
+    private Boolean  estado;
 
     @Column(name = "usrcreacion")
-    private String husrcreacion;
+    private String usrcreacion;
 
     @Column(name = "usredicion")
-    private String husredicion;
+    private String usredicion;
 
     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
     private List<ServiciosHabitacionEntity> serviciosHabitacion;
