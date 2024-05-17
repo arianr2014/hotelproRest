@@ -57,4 +57,10 @@ public class HabitacionServiceImpl implements HabitacionService{
         return optionalHabitacion;
     }
     
+    
+    @Override
+     public List<HabitacionEntity> findAllHabitaciones(double precioinicial, double preciofinal, String clasificacion) {
+        return repositorio.findAllHabitaciones(precioinicial, preciofinal, clasificacion);
+    }
+     
 }
