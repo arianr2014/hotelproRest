@@ -24,6 +24,41 @@
 						"header": []
 					},
 					"response": []
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8097/smartpro/habitacion/buscar?precioinicial=0&preciofinal=500&clasificacion=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8097",
+							"path": [
+								"smartpro",
+								"habitacion",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "precioinicial",
+									"value": "0"
+								},
+								{
+									"key": "preciofinal",
+									"value": "500"
+								},
+								{
+									"key": "clasificacion",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
