@@ -1,7 +1,10 @@
 Ejemplo de llamadas en la carpeta postman (descargar e importar en el postman)
 
-![image](https://github.com/arianr2014/hotelproRest/assets/7255366/40a8406b-da9d-4e3f-86cb-567f7c459e95)
+![image](https://github.com/arianr2014/hotelproRest/assets/7255366/048bd10c-904a-48cd-a32f-8f0f64250953)
 
+
+http://localhost:8097/smartpro/habitacion/buscar?precioinicial=0&preciofinal=500&clasificacion=suite
+![image](https://github.com/arianr2014/hotelproRest/assets/7255366/16832b48-9d4a-4b82-8e3d-74dc40134591)
 
 
 http://localhost:8097/smartpro/habitacion
