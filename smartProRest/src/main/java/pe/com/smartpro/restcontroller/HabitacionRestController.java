@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pe.com.smartpro.entities.HabitacionEntity;
 import pe.com.smartpro.service.HabitacionService;
@@ -32,4 +33,10 @@ public class HabitacionRestController {
         return servicio.findById(id);
     
     }
+    
+    @GetMapping("/buscar")
+    public List<HabitacionEntity> buscarHabitaciones(@RequestParam double precioinicial, @RequestParam double preciofinal, @RequestParam String clasificacion) {
+        return servicio.findAllHabitaciones(precioinicial, preciofinal, clasificacion);
+    }
+    
 }

@@ -1,3 +1,9 @@
+-- drop
+/*
+drop table imageneshabitacion;
+drop table servicioshabitacion;
+drop table habitacion;
+*/
 -- Crear tabla habitacion
 CREATE TABLE habitacion (
     idhabitacion INT AUTO_INCREMENT PRIMARY KEY,

@@ -64,6 +64,8 @@ public class ReservaServiceImpl implements ReservaService {
         reserva.setCliente(cliente);
         reserva.setHabitacion(habitacion);
 
+        habitacion.setContadorreserva(habitacion.getContadorreserva() + 1);
+        habitacionRepository.save(habitacion);
         // Guardar la reserva en la base de datos
         return reservaRepository.save(reserva);
 
