@@ -17,5 +17,6 @@ public interface HabitacionService {
    /* List<HabitacionEntity> findAllHabitaciones();*/
     Optional<HabitacionEntity> findById(long id);
     
-    public List<HabitacionEntity> findAllHabitaciones(double precioinicial, double preciofinal, String clasificacion);
+    public List<HabitacionEntity> findAllHabitaciones(double precioinicial, 
+            double preciofinal, String clasificacion);
 }

@@ -8,15 +8,12 @@ import org.springframework.data.repository.query.Param;
 import pe.com.smartpro.entities.HabitacionEntity;
 
 public interface HabitacionRepository extends JpaRepository<HabitacionEntity,Long> {
-    /*
-    @Query("select c from HabitacionEntity c where c.estado=true") 
-     List<HabitacionEntity> findAllHabitaciones();
-    */
-     
-
-    //@Query("SELECT c FROM HabitacionEntity c WHERE c.estado = true AND c.precio BETWEEN :precioinicial AND :preciofinal AND c.contadorreserva < c.cantidad AND c.clasificacion = :clasificacion")
-    @Query("SELECT c FROM HabitacionEntity c WHERE c.estado = true AND c.precio BETWEEN :precioinicial AND :preciofinal AND c.contadorreserva < c.cantidad " +
+  
+    @Query("SELECT c FROM HabitacionEntity c WHERE c.estado = true AND c.precio " + 
+      " BETWEEN :precioinicial AND :preciofinal AND c.contadorreserva < c.cantidad " +
        "AND (:clasificacion ='' OR c.clasificacion = :clasificacion)")
-    List<HabitacionEntity> findAllHabitaciones(@Param("precioinicial") double precioinicial, @Param("preciofinal") double preciofinal, @Param("clasificacion") String clasificacion);
+    List<HabitacionEntity> findAllHabitaciones(@Param("precioinicial") 
+            double precioinicial, @Param("preciofinal") 
+            double preciofinal, @Param("clasificacion") String clasificacion);
     
 }

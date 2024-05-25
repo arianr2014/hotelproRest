@@ -25,7 +25,6 @@ public class ReservaController {
         List<ReservaEntity> reservas = reservaService.findAll();
         return ResponseEntity.ok(reservas);
     }
-
     
    @GetMapping("/findReservasCliente/{id}")
     public ResponseEntity<List<ReservaEntity>> findReservasCliente(@PathVariable Long id) {
