@@ -33,10 +33,16 @@ public class HabitacionRestController {
         return servicio.findById(id);
     
     }
-    
+    /*
     @GetMapping("/buscar")
     public List<HabitacionEntity> buscarHabitaciones(@RequestParam double precioinicial, @RequestParam double preciofinal, @RequestParam String clasificacion) {
         return servicio.findAllHabitaciones(precioinicial, preciofinal, clasificacion);
+    }*/
+    
+    
+    @GetMapping("/buscar")
+    public List<HabitacionEntity> buscarHabitaciones(@RequestParam String preciovalor, @RequestParam String clasificacion) {
+        return servicio.findAllHabitaciones(preciovalor, clasificacion);
     }
     
 }
