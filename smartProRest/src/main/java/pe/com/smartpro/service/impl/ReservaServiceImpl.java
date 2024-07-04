@@ -4,6 +4,7 @@
  */
 package pe.com.smartpro.service.impl;
 
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -35,13 +36,22 @@ public class ReservaServiceImpl implements ReservaService {
         return reservaRepository.findAll();
     }
     
-   @Override
+  @Override
     public List<ReservaEntity> findReservasCliente(String id) {
-        
-       ClienteEntity cliente = clienteRepository.findByIdCustom(id);
-       
-        return reservaRepository.findReservasCliente(cliente.getIdCliente());
-    }
+        try {
+            ClienteEntity cliente = clienteRepository.findByIdCustom(id);
+
+            // Si el cliente no se encuentra, devolver un listado vacío
+            if (cliente == null) {
+                return Collections.emptyList();
+            }
+
+            return reservaRepository.findReservasCliente(cliente.getIdCliente());
+        } catch (Exception e) {
+            // Manejar la excepción y devolver un listado vacío
+            return Collections.emptyList();
+        }
+}
 
     @Override
     public Optional<ReservaEntity> findById(Long id) {
@@ -68,6 +78,7 @@ public class ReservaServiceImpl implements ReservaService {
             cliente.setUrlfoto("");
             cliente.setUsuarioCreacion("admin");
             cliente.setUsuarioEdicion("admin");
+            cliente.setId(clienteId);
             cliente.setEstado(true); // Por defecto, se puede configurar según sea necesario
             // Guardar el nuevo cliente
             cliente = clienteRepository.save(cliente);
