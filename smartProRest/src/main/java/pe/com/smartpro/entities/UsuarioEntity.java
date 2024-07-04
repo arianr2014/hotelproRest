@@ -37,11 +37,7 @@ public class UsuarioEntity implements Serializable{
 
     @Column(name = "estado")
     private Boolean estado;
-
-    @ManyToOne
-    @JoinColumn(name = "idcliente")
-    private ClienteEntity cliente;
-      
+        
     @Column(name = "usrcreacion")
     private String usrCreacion;
 
@@ -53,6 +49,25 @@ public class UsuarioEntity implements Serializable{
 
     @Column(name = "fechedicion")
     private String fechEdicion;
+    
+    @Column(name = "id")
+    private String id;
+    
+    @Column(name = "first_name")
+    private String first_name;
+    
+    
+     @Column(name = "last_name")
+    private String last_name;
+    
+     
+      @Column(name = "image_url")
+    private String image_url;
+    
+    
+    
+    
+    
 
     // Constructor, getters y setters
 }

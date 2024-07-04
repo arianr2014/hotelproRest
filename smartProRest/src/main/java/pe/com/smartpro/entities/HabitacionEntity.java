@@ -65,6 +65,10 @@ public class HabitacionEntity implements Serializable{
      @Column(name = "preciovalor")
     private String preciovalor;
 
+        @Column(name = "descripcion")
+    private String descripcion;
+
+     
  
     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
     @JsonManagedReference // Indica que este lado de la relación será serializado

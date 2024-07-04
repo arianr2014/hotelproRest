@@ -7,6 +7,7 @@ package pe.com.smartpro.restcontroller;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,23 +23,20 @@ public class HabitacionRestController {
     @Autowired
     private HabitacionService servicio;
     
+    
     @GetMapping
     public List<HabitacionEntity> findAll(){
         return servicio.findAll();
     
     }
  
+   
     @GetMapping("/findById/{id}")
     public Optional<HabitacionEntity> findById(@PathVariable Long id){
         return servicio.findById(id);
     
     }
-    /*
-    @GetMapping("/buscar")
-    public List<HabitacionEntity> buscarHabitaciones(@RequestParam double precioinicial, @RequestParam double preciofinal, @RequestParam String clasificacion) {
-        return servicio.findAllHabitaciones(precioinicial, preciofinal, clasificacion);
-    }*/
-    
+ 
     
     @GetMapping("/buscar")
     public List<HabitacionEntity> buscarHabitaciones(@RequestParam String preciovalor, @RequestParam String clasificacion) {

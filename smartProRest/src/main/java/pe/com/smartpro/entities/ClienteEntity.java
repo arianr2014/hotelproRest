@@ -9,7 +9,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 import lombok.*;
 
@@ -65,6 +68,30 @@ public class ClienteEntity  implements Serializable{
 
     @Column(name = "fechedicion")
     private String fechaEdicion;
+    
+    @Column(name = "id")
+    private String id;
 
+    
+    @Transient
+    private String fullName;
+
+    @Transient
+    private String lastName;
+    
+    
+    @Transient
+    private String country;
+    
+    @Transient
+    private String location;
+    
+    @Transient
+    private String passportOrID;
+    
+    @Transient
+    private String phone;
+            
+            
     // Getters y setters
 }
