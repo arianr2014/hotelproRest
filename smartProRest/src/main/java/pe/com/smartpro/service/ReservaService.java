@@ -13,7 +13,7 @@ public interface ReservaService {
 
     Optional<ReservaEntity> findById(Long id);
     
-    List<ReservaEntity> findReservasCliente(Long id);
+    List<ReservaEntity> findReservasCliente(String id);
      
     ReservaEntity save(ReservaEntity reserva);
 

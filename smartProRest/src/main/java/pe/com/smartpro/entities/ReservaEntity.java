@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 import lombok.*;
 import java.math.BigDecimal;
@@ -72,6 +73,9 @@ public class ReservaEntity {
 
     @Column(name = "fechedicion")
     private String fechaEdicion;
+    
+    @Transient
+    private String id;
 
     // Getters y setters
 }

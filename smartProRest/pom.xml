@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>pe.com.smartpro</groupId>
 	<artifactId>SmartProRest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.2-SNAPSHOT</version>
 	<name>SmartProRest</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -47,6 +47,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+                <dependency>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>javax.servlet-api</artifactId>
+                    <version>4.0.1</version> <!-- Ajusta la versión según tus necesidades -->
+                </dependency>
 	</dependencies>
 
 	<build>
@@ -64,6 +69,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+                <finalName>springboot-aws-v8</finalName>
 	</build>
 
 </project>

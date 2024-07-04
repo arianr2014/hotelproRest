@@ -8,11 +8,15 @@ package pe.com.smartpro.service.impl;
  *
  * @author Arian
  */
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import pe.com.smartpro.entities.UsuarioEntity;
 import pe.com.smartpro.repository.UsuarioRepository;
 import pe.com.smartpro.service.UsuarioService;
@@ -41,6 +45,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioEntity save(UsuarioEntity usuario) {
+        
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+        usuario.setPassword("");
+        usuario.setEstado(Boolean.TRUE);
+        usuario.setFechCreacion(formattedDate);
+        
         return usuarioRepository.save(usuario);
     }
 

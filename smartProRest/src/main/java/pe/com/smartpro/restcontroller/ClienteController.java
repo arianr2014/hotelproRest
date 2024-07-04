@@ -20,30 +20,32 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
+    
     @GetMapping
     public ResponseEntity<List<ClienteEntity>> findAll() {
         List<ClienteEntity> clientes = clienteService.findAll();
         return ResponseEntity.ok(clientes);
     }
-
+    
     @GetMapping("/{id}")
     public ResponseEntity<ClienteEntity> findById(@PathVariable Long id) {
         Optional<ClienteEntity> cliente = clienteService.findById(id);
         return cliente.map(value -> ResponseEntity.ok().body(value)).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    
     @PostMapping
     public ResponseEntity<ClienteEntity> save(@RequestBody ClienteEntity cliente) {
         ClienteEntity savedCliente = clienteService.save(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCliente);
     }
-
+ 
     @PutMapping("/{id}")
     public ResponseEntity<ClienteEntity> update(@PathVariable Long id, @RequestBody ClienteEntity cliente) {
         ClienteEntity updatedCliente = clienteService.update(id, cliente);
         return ResponseEntity.ok(updatedCliente);
     }
-
+ 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         clienteService.delete(id);

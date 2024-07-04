@@ -26,32 +26,33 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+     
     @GetMapping
     public List<UsuarioEntity> findAll() {
         return usuarioService.findAll();
     }
-
+ 
     @GetMapping("/{id}")
     public Optional<UsuarioEntity> findById(@PathVariable Long id) {
         return usuarioService.findById(id);
     }
-
+ 
     @PostMapping
     public UsuarioEntity v(@RequestBody UsuarioEntity usuario) {
         return usuarioService.save(usuario);
     }
-
+ 
     @PutMapping("/{id}")
     public UsuarioEntity update(@PathVariable Long id, @RequestBody UsuarioEntity usuario) {
         return usuarioService.update(id, usuario);
     }
-
+ 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         usuarioService.deleteById(id);
     }
     
-    
+ 
     @PostMapping("/validarAcceso")
     public ResponseEntity<?> validarAcceso(@RequestBody ValidarAccesoDto request) {
         String email = request.getEmail();
