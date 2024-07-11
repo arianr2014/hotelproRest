@@ -4,6 +4,8 @@
  */
 package pe.com.smartpro.service.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -11,11 +13,14 @@ import java.util.Set;
 import javax.crypto.AEADBadTagException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.com.smartpro.dto.FechaReserva;
 import pe.com.smartpro.entities.HabitacionEntity;
 import pe.com.smartpro.entities.ImagenesHabitacionEntity;
+import pe.com.smartpro.entities.ReservaEntity;
 import pe.com.smartpro.entities.ServiciosHabitacionEntity;
 import pe.com.smartpro.repository.HabitacionRepository;
 import pe.com.smartpro.repository.ImagenesHabitacionRepository;
+import pe.com.smartpro.repository.ReservaRepository;
 import pe.com.smartpro.repository.ServiciosHabitacionRepository;
 import pe.com.smartpro.service.HabitacionService;
 
@@ -28,12 +33,38 @@ public class HabitacionServiceImpl implements HabitacionService{
     @Autowired
     private ImagenesHabitacionRepository repositorioImagenes;
     
-      @Autowired
+    @Autowired
     private ServiciosHabitacionRepository repositorioServicios;
+      
+    @Autowired
+    private ReservaRepository reservaRepository;
             
     @Override
     public List<HabitacionEntity> findAll() {
-        return repositorio.findAll();
+         List<HabitacionEntity> lista= repositorio.findAll();
+          for(HabitacionEntity habitacion : lista){
+            List<ReservaEntity> listaFechasReserva = reservaRepository.findFechasByHabitacion(habitacion.getCodigo());
+            List<FechaReserva> listaFechas = new ArrayList<>();
+                for (ReservaEntity fecha : listaFechasReserva) {
+               
+                
+                 String fechaInicio = fecha.getFechaIngreso().toString();
+                 String fechaFin = fecha.getFechaSalida().toString();
+                 String nombres=fecha.getCliente().getNombres();
+                 String apellidos=fecha.getCliente().getApellidos();
+                 String idUsuario=fecha.getCliente().getId();
+                 String foto=fecha.getCliente().getUrlfoto();
+                 FechaReserva f= new FechaReserva(fechaInicio, fechaFin,fecha.getCliente().getIdCliente(),foto, nombres, apellidos, idUsuario);
+             
+                 listaFechas.add(f);
+                 
+            }
+           habitacion.setFechas(listaFechas);
+            
+        
+        }  
+         
+        return lista;
     }
 /*
     @Override
@@ -51,8 +82,30 @@ public class HabitacionServiceImpl implements HabitacionService{
             
             List<ServiciosHabitacionEntity> listadoServicios = repositorioServicios.findAllServiciosHabitacion(id);
             habitacion.setServiciosHabitacion(listadoServicios); 
+        
+           List<ReservaEntity> listaFechasReserva = reservaRepository.findFechasByHabitacion(id);
+            List<FechaReserva> listaFechas = new ArrayList<>();
+            
+           for (ReservaEntity fecha : listaFechasReserva) {
+               
+                
+                 String fechaInicio = fecha.getFechaIngreso().toString();
+                 String fechaFin = fecha.getFechaSalida().toString();
+                 String nombres=fecha.getCliente().getNombres();
+                 String apellidos=fecha.getCliente().getApellidos();
+                 String idUsuario=fecha.getCliente().getId();
+                 String foto=fecha.getCliente().getUrlfoto();
+                 FechaReserva f= new FechaReserva(fechaInicio, fechaFin,fecha.getCliente().getIdCliente(),foto, nombres, apellidos, idUsuario);
+                 
+                 listaFechas.add(f);
+                 
+            }
+            habitacion.setFechas(listaFechas);
+ 
             
         });
+        
+        
        
         return optionalHabitacion;
     }
@@ -65,7 +118,31 @@ public class HabitacionServiceImpl implements HabitacionService{
         
      @Override
      public List<HabitacionEntity> findAllHabitaciones(String preciovalor, String clasificacion) {
-        return repositorio.findAllHabitaciones(preciovalor, clasificacion);
+         
+        List<HabitacionEntity> lista= repositorio.findAllHabitaciones(preciovalor, clasificacion);
+        for(HabitacionEntity habitacion : lista){
+            List<ReservaEntity> listaFechasReserva = reservaRepository.findFechasByHabitacion(habitacion.getCodigo());
+            List<FechaReserva> listaFechas = new ArrayList<>();
+                for (ReservaEntity fecha : listaFechasReserva) {
+               
+                
+                 String fechaInicio = fecha.getFechaIngreso().toString();
+                  String fechaFin = fecha.getFechaSalida().toString();
+                    String nombres=fecha.getCliente().getNombres();
+                 String apellidos=fecha.getCliente().getApellidos();
+                 String idUsuario=fecha.getCliente().getId();
+                 String foto=fecha.getCliente().getUrlfoto();
+                 FechaReserva f= new FechaReserva(fechaInicio, fechaFin,fecha.getCliente().getIdCliente(),foto, nombres, apellidos, idUsuario);
+             
+                 
+                 listaFechas.add(f);
+                 
+            }
+           habitacion.setFechas(listaFechas);
+            
+        
+        }  
+        return lista;
     }
      
 }

@@ -12,9 +12,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 import java.util.List;
 import lombok.*;
+import pe.com.smartpro.dto.FechaReserva;
 
 
 @Data
@@ -51,7 +53,7 @@ public class HabitacionEntity implements Serializable{
     
     @Column(name = "clasificacion")
     private String clasificacion;
-    
+    /*
      @Column(name = "cantidad")
     private Long cantidad;
 
@@ -60,7 +62,7 @@ public class HabitacionEntity implements Serializable{
 
     @Column(name = "counter")
     private Long counter;
-    
+    */
     
      @Column(name = "preciovalor")
     private String preciovalor;
@@ -76,5 +78,9 @@ public class HabitacionEntity implements Serializable{
     @OneToMany(mappedBy = "habitacion", cascade = CascadeType.ALL)
     @JsonManagedReference // Indica que este lado de la relación será serializado
     private List<ImagenesHabitacionEntity> imagenesHabitacion;
+    
+    @Transient
+    private List<FechaReserva> fechas; // Campo que no se persistirá en la base de datos
+
  
 }
